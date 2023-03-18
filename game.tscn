@@ -1,13 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://djnhp7bsjsgbx"]
+[gd_scene load_steps=7 format=3 uid="uid://djnhp7bsjsgbx"]
 
 [ext_resource type="PackedScene" uid="uid://c4u6qlgcdemps" path="res://player.tscn" id="1_inedv"]
 [ext_resource type="Script" path="res://game.cs" id="1_tq8vp"]
+[ext_resource type="Script" path="res://Mobs.cs" id="3_piauh"]
+[ext_resource type="PackedScene" uid="uid://b87s34vgdx07m" path="res://mob.tscn" id="4_pyiir"]
+[ext_resource type="PackedScene" uid="uid://depftfcy0iblt" path="res://mob_spawner.tscn" id="5_p1w8m"]
+[ext_resource type="PackedScene" uid="uid://4r3ihfqhgrva" path="res://player_base.tscn" id="6_u7f30"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_tq8vp")
 
+[node name="PlayerBase" parent="." instance=ExtResource("6_u7f30")]
+position = Vector2(576, 128)
+rotation = 0.785398
+
 [node name="Player" parent="." instance=ExtResource("1_inedv")]
-position = Vector2(568, 312)
-scale = Vector2(0.8, 0.8)
+position = Vector2(576, 64)
+scale = Vector2(0.5, 0.5)
 
 [node name="Bullets" type="Node2D" parent="."]
+
+[node name="Mobs" type="Node2D" parent="."]
+script = ExtResource("3_piauh")
+ObjectToSpawn = ExtResource("4_pyiir")
+
+[node name="MobSpawners" type="Node2D" parent="."]
+
+[node name="MobSpawner0" parent="MobSpawners" instance=ExtResource("5_p1w8m")]
+position = Vector2(0, 640)
+MobScene = ExtResource("4_pyiir")
+
+[node name="MobSpawner1" parent="MobSpawners" instance=ExtResource("5_p1w8m")]
+position = Vector2(1152, 640)
+MobScene = ExtResource("4_pyiir")
+
+[node name="MobSpawnTimer" type="Timer" parent="."]
+wait_time = 10.0

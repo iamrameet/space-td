@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://4r3ihfqhgrva"]
+
+[ext_resource type="Texture2D" uid="uid://ng5berkgd8eo" path="res://sprites/station_C.png" id="1_6otqo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fyxyj"]
+radius = 34.0
+
+[node name="PlayerBase" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6otqo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fyxyj")

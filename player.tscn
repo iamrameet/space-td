@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4u6qlgcdemps"]
+[gd_scene load_steps=5 format=3 uid="uid://c4u6qlgcdemps"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_kdqft"]
 [ext_resource type="Texture2D" uid="uid://bd8x480e6w7f3" path="res://sprites/ship_F.png" id="2_mli4b"]
+
+[sub_resource type="Gradient" id="Gradient_dbmgo"]
+colors = PackedColorArray(1, 0.34902, 0, 1, 1, 1, 0, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2p013"]
 animations = [{
@@ -18,11 +21,8 @@ animations = [{
 position = Vector2(576, 320)
 rotation = 1.5708
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 script = ExtResource("1_kdqft")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_2p013")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(3.05176e-05, 0)
@@ -30,3 +30,17 @@ polygon = PackedVector2Array(-24, 24, 0, 10, 24, 24, 0, -25)
 
 [node name="Muzzle" type="Node2D" parent="."]
 position = Vector2(-9.15527e-05, -32)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 10
+speed_scale = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(1, 0.6, 0, 1)
+color_ramp = SubResource("Gradient_dbmgo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2p013")

@@ -9,7 +9,7 @@ size = Vector2(8, 32)
 [node name="Bullet" type="Area2D"]
 position = Vector2(576, 320)
 collision_layer = 8
-collision_mask = 5
+collision_mask = 20
 script = ExtResource("1_o4nd2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,4 +24,5 @@ shape = SubResource("RectangleShape2D_kddoq")
 position = Vector2(6.19888e-06, 1.43051e-06)
 scale = Vector2(0.400001, 1.6)
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

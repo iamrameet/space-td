@@ -4,7 +4,7 @@ using System;
 public partial class Player : CharacterBody2D
 {
 	[Export] float speed = 50.0f;
-	[Export] float rotationSpeed = 3.0f;
+	[Export] float rotationSpeed = 2.0f;
 	[Export] float maxSpeed = 150.0f;
 	[Export] float acceleration = 10.0f;
 	bool canFire = true;

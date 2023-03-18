@@ -16,14 +16,22 @@ animations = [{
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
 position = Vector2(576, 320)
+collision_layer = 16
+collision_mask = 29
 gravity_scale = 0.0
 script = ExtResource("1_e7bjo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-7.15256e-07, -7.15256e-07)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_iibgx")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, -23, 7, 4, 12, 9, 20, 8, 24, 15, 21, 23, 13, 24, 8, 19, 8, 12, 0, 16, -9, 12, -8, 19, -13, 24, -18, 24, -23, 20, -25, 14, -21, 9, -12, 8, -8, 4)
+position = Vector2(1.71661e-05, -0.31915)
+scale = Vector2(0.625, 0.638298)
+polygon = PackedVector2Array(0, -23, 24, 8, 24, 24, -24, 24, -24, 24, -24, 8)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-1.00136e-05, 2.86102e-06)
+scale = Vector2(0.64, 0.64)
 rect = Rect2(-25, -25, 50, 50)
