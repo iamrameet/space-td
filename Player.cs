@@ -10,6 +10,7 @@ public partial class Player : CharacterBody2D
 	bool canFire = true;
 	int rotation = 0;
 	Vector2 destination = Vector2.Zero;
+	public ProgressBar healthBar;
 	Node2D muzzle;
 	PackedScene bulletScene;
 	[Signal] public delegate void bulletFireEventHandler(Bullet bullet);
@@ -18,6 +19,7 @@ public partial class Player : CharacterBody2D
 	{
 		Console.WriteLine("[Player]: ready");
 		muzzle = GetNode<Node2D>("Muzzle");
+		healthBar = GetNode<ProgressBar>("HealthBar");
 		ResourcePreloader loader = new ResourcePreloader();
 		bulletScene = GD.Load<PackedScene>("res://bullet.tscn");
 	}
@@ -65,9 +67,6 @@ public partial class Player : CharacterBody2D
 		if(canFire){
 			canFire = false;
 			fireBullet();
-			Util.Util.setTimeout(this, () => {
-				Console.WriteLine("fired");
-			}, 200);
 			await ToSignal(GetTree().CreateTimer(0.2), "timeout");
 			canFire = true;
 		}

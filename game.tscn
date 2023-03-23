@@ -35,4 +35,4 @@ position = Vector2(1152, 640)
 MobScene = ExtResource("4_pyiir")
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0

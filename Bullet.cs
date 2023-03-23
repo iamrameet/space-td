@@ -25,7 +25,11 @@ public partial class Bullet : Area2D
 	}
 	private void _on_body_entered(Node2D body)
 	{
-		Mob mob = (Mob) body;
+		try{
+			Player player = (Player) body;
+			player.healthBar.Value--;
+			return;
+		}catch(Exception ex){}
 		body.QueueFree();
 		QueueFree();
 	}

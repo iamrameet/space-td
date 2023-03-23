@@ -5,10 +5,10 @@ public partial class game : Node2D
 {
 	Node2D bullets;
 	Player player;
-  Mobs mobs;
+  	Mobs mobs;
 	Node2D mobSpawners;
 	Area2D playerBase;
-  Timer mobSpawnTimer;
+  	Timer mobSpawnTimer;
   public override void _Ready()
   {
 		bullets = GetNode<Node2D>("Bullets");
@@ -30,6 +30,7 @@ public partial class game : Node2D
   }
   private void onMobSpawn(Mob mob, MobSpawner spawner){
 		mobs.AddChild(mob);
+		mob.Connect("bulletFire", new Callable(this, "onBulletFire"));
 		const float t = 0.1f;
 		Vector2 spawnPosition = (playerBase.Position - spawner.Position) * t + spawner.Position;
 		mob.Position = spawnPosition;
@@ -42,7 +43,7 @@ public partial class game : Node2D
   public override void _PhysicsProcess(double delta)
   {
 		foreach(Mob mob in mobs.GetChildren()){
-			mob.target = playerBase.Position;
+			mob.target = player.Position;
 		}
   }
 }

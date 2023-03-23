@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Space Tower Defence"
 
+[editor]
+
+run/main_run_args="--rendering-driver opengl3"
+
 [input]
 
 moveRight={

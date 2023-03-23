@@ -35,3 +35,15 @@ polygon = PackedVector2Array(0, -23, 24, 8, 24, 24, -24, 24, -24, 24, -24, 8)
 position = Vector2(-1.00136e-05, 2.86102e-06)
 scale = Vector2(0.64, 0.64)
 rect = Rect2(-25, -25, 50, 50)
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(0, -24)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 144.0
+offset_bottom = 3.0
+scale = Vector2(0.2, 0.2)
+step = 1.0
+value = 100.0
