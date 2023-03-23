@@ -65,6 +65,9 @@ public partial class Player : CharacterBody2D
 		if(canFire){
 			canFire = false;
 			fireBullet();
+			Util.Util.setTimeout(this, () => {
+				Console.WriteLine("fired");
+			}, 200);
 			await ToSignal(GetTree().CreateTimer(0.2), "timeout");
 			canFire = true;
 		}
